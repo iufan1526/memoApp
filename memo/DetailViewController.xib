@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="memo" customModuleProvider="target">
+            <connections>
+                <outlet property="contentTextView" destination="z4k-Rs-tUU" id="yHt-EJ-98g"/>
+                <outlet property="dateLabel" destination="B2Y-TM-Cvn" id="Qfs-s2-wtU"/>
+                <outlet property="deleteButton" destination="dvU-L7-0SK" id="hlK-fp-Qax"/>
+                <outlet property="saveButton" destination="egd-iB-6EJ" id="5xD-iL-JjX"/>
+                <outlet property="titleLabel" destination="OzM-Xr-vUx" id="3th-cZ-wVi"/>
+                <outlet property="titleTextField" destination="fXl-YA-Qd2" id="jtd-yd-PdN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="DetailViewController" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 메모" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzM-Xr-vUx" userLabel="title">
+                    <rect key="frame" x="10" y="69" width="95.666666666666671" height="25.333333333333329"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NNY-7W-IEH" userLabel="buttonStackView">
+                    <rect key="frame" x="313" y="69" width="70" height="30"/>
+                    <subviews>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvU-L7-0SK" userLabel="deleteButton">
+                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="삭제"/>
+                            <connections>
+                                <action selector="cancleMoveToMain:" destination="-1" eventType="touchUpInside" id="YI9-Co-JeP"/>
+                                <action selector="deleteMoveToMain:" destination="-1" eventType="touchUpInside" id="SJO-Tw-toD"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdI-AQ-rzV" userLabel="cancelButton">
+                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="취소"/>
+                            <connections>
+                                <action selector="cancleMoveToMain:" destination="-1" eventType="touchUpInside" id="J11-hl-SXS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egd-iB-6EJ" userLabel="doneButton">
+                            <rect key="frame" x="40" y="0.0" width="30" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="완료"/>
+                            <connections>
+                                <action selector="saveMoveToMain:" destination="-1" eventType="touchUpInside" id="XCE-7a-JVQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제목을 입력해주세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fXl-YA-Qd2" userLabel="titleTextField">
+                    <rect key="frame" x="20" y="170.33333333333334" width="353" height="40"/>
+                    <color key="backgroundColor" systemColor="systemGray3Color"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Mba-qg-wH6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBs-tD-JtY" userLabel="removeTitle">
+                    <rect key="frame" x="321" y="173" width="52" height="34.333333333333343"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="delete.left" catalog="system" title=""/>
+                    <connections>
+                        <action selector="removeTitle:" destination="-1" eventType="touchUpInside" id="iW0-gG-L13"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z4k-Rs-tUU">
+                    <rect key="frame" x="20" y="248" width="353" height="540"/>
+                    <color key="backgroundColor" systemColor="systemGray3Color"/>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2Y-TM-Cvn" userLabel="date">
+                    <rect key="frame" x="367" y="162" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z4k-Rs-tUU" secondAttribute="trailing" constant="20" id="5sY-3g-KO4"/>
+                <constraint firstItem="YBs-tD-JtY" firstAttribute="top" secondItem="NNY-7W-IEH" secondAttribute="bottom" constant="74" id="CuM-3T-lp3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fXl-YA-Qd2" secondAttribute="trailing" constant="20" id="JM0-tz-WtT"/>
+                <constraint firstItem="fXl-YA-Qd2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="NE2-fc-4KH"/>
+                <constraint firstItem="z4k-Rs-tUU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Uge-GH-Qmj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="B2Y-TM-Cvn" secondAttribute="trailing" constant="26" id="Xj8-sU-GgU"/>
+                <constraint firstItem="fXl-YA-Qd2" firstAttribute="top" secondItem="OzM-Xr-vUx" secondAttribute="bottom" constant="75.670000000000002" id="Z1q-r1-BO4"/>
+                <constraint firstItem="YBs-tD-JtY" firstAttribute="centerY" secondItem="fXl-YA-Qd2" secondAttribute="centerY" id="bRa-Bx-ieO"/>
+                <constraint firstItem="OzM-Xr-vUx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="hEb-Wt-Jlu"/>
+                <constraint firstItem="z4k-Rs-tUU" firstAttribute="top" secondItem="fXl-YA-Qd2" secondAttribute="bottom" constant="37.670000000000002" id="iHR-Hc-Lve"/>
+                <constraint firstItem="NNY-7W-IEH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="lAC-Sc-5h3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YBs-tD-JtY" secondAttribute="trailing" constant="20" id="mZu-60-XNT"/>
+                <constraint firstItem="fXl-YA-Qd2" firstAttribute="top" secondItem="B2Y-TM-Cvn" secondAttribute="bottom" constant="8.3300000000000001" id="p70-oc-clv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="z4k-Rs-tUU" secondAttribute="bottom" constant="30" id="qtM-UF-Vb5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NNY-7W-IEH" secondAttribute="trailing" constant="10" id="uTC-9a-aLk"/>
+                <constraint firstItem="OzM-Xr-vUx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="zKj-fR-GD0"/>
+            </constraints>
+            <point key="canvasLocation" x="5.343511450381679" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="delete.left" catalog="system" width="128" height="102"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
