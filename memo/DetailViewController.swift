@@ -68,6 +68,16 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func deleteMoveToMain(_ sender: Any) {
+        
+        let deletAlert = UIAlertController(title: "메모 삭제", message: "메모를 정말 삭제 하시겠습니까?", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "Delete", style: .cancel) { _ in
+            print("얼럿")
+        }
+        
+        deletAlert.addAction(deleteAction)
+        
+        self.present(deletAlert, animated: true)
+        
         if let memoItem = memoItem {
             context.delete(memoItem)
             appdelegate.saveContext()
