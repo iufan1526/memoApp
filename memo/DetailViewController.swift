@@ -57,27 +57,9 @@ class DetailViewController: UIViewController {
         let date = Date()
     
         if isUpdate == true {
-            
-            guard let memoItem = memoItem else{
-              fatalError()
-            }
-            
-            memoItem.title = self.titleTextField.text
-            memoItem.content = self.contentTextView.text
-            memoItem.date = date
+            updateData()
         }else {
-            // 저장에 필요한 Entity 생성
-            guard let entity = NSEntityDescription.entity(forEntityName: "Memo", in: context) else {
-                return
-            }
-            
-            // 만들어진 Entity를 통해 NSManagedObject 생성 casting 필요!!
-            let memoItem = NSManagedObject(entity: entity, insertInto: context) as! Memo
-            
-            memoItem.title = titleTextField.text
-            memoItem.content = contentTextView.text
-            memoItem.id = UUID()
-            memoItem.date = date
+            saveData()
         }
        
         appdelegate.saveContext()
@@ -101,6 +83,39 @@ class DetailViewController: UIViewController {
 
 }
 
+extension DetailViewController {
+    
+    func updateData() {
+        
+        let date = Date()
+        
+        guard let memoItem = memoItem else{
+          fatalError()
+        }
+        
+        memoItem.title = self.titleTextField.text
+        memoItem.content = self.contentTextView.text
+        memoItem.date = date
+    }
+    
+    func saveData() {
+        
+        let date = Date()
+        
+        // 저장에 필요한 Entity 생성
+        guard let entity = NSEntityDescription.entity(forEntityName: "Memo", in: context) else {
+            return
+        }
+        
+        // 만들어진 Entity를 통해 NSManagedObject 생성 casting 필요!!
+        let memoItem = NSManagedObject(entity: entity, insertInto: context) as! Memo
+        
+        memoItem.title = titleTextField.text
+        memoItem.content = contentTextView.text
+        memoItem.id = UUID()
+        memoItem.date = date
+    }
+}
 extension DetailViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
