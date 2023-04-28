@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var titleWarningLabel: UILabel!
     
     /// Appdelegate 내 persistentContainer 생성.
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -53,31 +54,17 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func saveMoveToMain(_ sender: Any) {
-        
-        let date = Date()
-    
+            
         if isUpdate == true {
             updateData()
         }else {
             saveData()
         }
-       
-        appdelegate.saveContext()
-        delegate?.didFinshedSave()
-        self.dismiss(animated: true)
     }
     
+    
     @IBAction func deleteMoveToMain(_ sender: Any) {
-        
-        let deletAlert = UIAlertController(title: "메모 삭제", message: "메모를 정말 삭제 하시겠습니까?", preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "Delete", style: .cancel) { _ in
-            print("얼럿")
-        }
-        
-        deletAlert.addAction(deleteAction)
-        
-        self.present(deletAlert, animated: true)
-        
+
         if let memoItem = memoItem {
             context.delete(memoItem)
             appdelegate.saveContext()
@@ -106,26 +93,43 @@ extension DetailViewController {
         memoItem.title = self.titleTextField.text
         memoItem.content = self.contentTextView.text
         memoItem.date = date
+        
+        appdelegate.saveContext()
+        delegate?.didFinshedSave()
+        self.dismiss(animated: true)
     }
     
     func saveData() {
         
-        let date = Date()
+        let titleText = self.titleTextField.text ?? ""
         
-        // 저장에 필요한 Entity 생성
-        guard let entity = NSEntityDescription.entity(forEntityName: "Memo", in: context) else {
+        if titleText == "" {
+            self.titleWarningLabel.isHidden = false
+            
             return
+        }else {
+            let date = Date()
+            
+            // 저장에 필요한 Entity 생성
+            guard let entity = NSEntityDescription.entity(forEntityName: "Memo", in: context) else {
+                return
+            }
+            
+            // 만들어진 Entity를 통해 NSManagedObject 생성 casting 필요!!
+            let memoItem = NSManagedObject(entity: entity, insertInto: context) as! Memo
+            
+            memoItem.title = titleTextField.text
+            memoItem.content = contentTextView.text
+            memoItem.id = UUID()
+            memoItem.date = date
+            
+            appdelegate.saveContext()
+            delegate?.didFinshedSave()
+            self.dismiss(animated: true)
         }
-        
-        // 만들어진 Entity를 통해 NSManagedObject 생성 casting 필요!!
-        let memoItem = NSManagedObject(entity: entity, insertInto: context) as! Memo
-        
-        memoItem.title = titleTextField.text
-        memoItem.content = contentTextView.text
-        memoItem.id = UUID()
-        memoItem.date = date
     }
 }
+
 extension DetailViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         

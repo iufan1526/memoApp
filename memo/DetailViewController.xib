@@ -16,6 +16,7 @@
                 <outlet property="saveButton" destination="egd-iB-6EJ" id="5xD-iL-JjX"/>
                 <outlet property="titleLabel" destination="OzM-Xr-vUx" id="3th-cZ-wVi"/>
                 <outlet property="titleTextField" destination="fXl-YA-Qd2" id="jtd-yd-PdN"/>
+                <outlet property="titleWarningLabel" destination="aPi-o4-VdH" id="Di2-1h-ltY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -97,13 +98,21 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목은 필수적으로 입력되어야 합니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPi-o4-VdH">
+                    <rect key="frame" x="20.000000000000014" y="218" width="253.33333333333337" height="20.333333333333343"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="systemRedColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z4k-Rs-tUU" secondAttribute="trailing" constant="20" id="5sY-3g-KO4"/>
                 <constraint firstItem="YBs-tD-JtY" firstAttribute="top" secondItem="NNY-7W-IEH" secondAttribute="bottom" constant="74" id="CuM-3T-lp3"/>
+                <constraint firstItem="aPi-o4-VdH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ISf-00-JIK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fXl-YA-Qd2" secondAttribute="trailing" constant="20" id="JM0-tz-WtT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aPi-o4-VdH" secondAttribute="trailing" constant="119.67" id="JxT-B3-9J9"/>
                 <constraint firstItem="fXl-YA-Qd2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="NE2-fc-4KH"/>
                 <constraint firstItem="z4k-Rs-tUU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Uge-GH-Qmj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="B2Y-TM-Cvn" secondAttribute="trailing" constant="26" id="Xj8-sU-GgU"/>
@@ -111,9 +120,11 @@
                 <constraint firstItem="YBs-tD-JtY" firstAttribute="centerY" secondItem="fXl-YA-Qd2" secondAttribute="centerY" id="bRa-Bx-ieO"/>
                 <constraint firstItem="OzM-Xr-vUx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="hEb-Wt-Jlu"/>
                 <constraint firstItem="z4k-Rs-tUU" firstAttribute="top" secondItem="fXl-YA-Qd2" secondAttribute="bottom" constant="37.670000000000002" id="iHR-Hc-Lve"/>
+                <constraint firstItem="z4k-Rs-tUU" firstAttribute="top" secondItem="aPi-o4-VdH" secondAttribute="bottom" constant="9.6699999999999999" id="iU5-Sd-bDT"/>
                 <constraint firstItem="NNY-7W-IEH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="lAC-Sc-5h3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YBs-tD-JtY" secondAttribute="trailing" constant="20" id="mZu-60-XNT"/>
                 <constraint firstItem="fXl-YA-Qd2" firstAttribute="top" secondItem="B2Y-TM-Cvn" secondAttribute="bottom" constant="8.3300000000000001" id="p70-oc-clv"/>
+                <constraint firstItem="aPi-o4-VdH" firstAttribute="top" secondItem="fXl-YA-Qd2" secondAttribute="bottom" constant="7.6699999999999999" id="pgg-DO-nM1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="z4k-Rs-tUU" secondAttribute="bottom" constant="30" id="qtM-UF-Vb5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NNY-7W-IEH" secondAttribute="trailing" constant="10" id="uTC-9a-aLk"/>
                 <constraint firstItem="OzM-Xr-vUx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="zKj-fR-GD0"/>
@@ -131,6 +142,9 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
