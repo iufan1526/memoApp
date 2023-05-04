@@ -84,7 +84,7 @@ extension DetailViewController {
     
     func updateData() {
         
-        let date = Date()
+        let date = Date.now
         
         guard let memoItem = memoItem else{
           fatalError()
@@ -109,7 +109,7 @@ extension DetailViewController {
             return
         }else {
             let date = Date()
-            
+    
             // 저장에 필요한 Entity 생성
             guard let entity = NSEntityDescription.entity(forEntityName: "Memo", in: context) else {
                 return

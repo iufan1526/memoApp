@@ -40,6 +40,7 @@ class MainViewController: UIViewController {
 
         do{
             memoList = try context.fetch(fetchRequest)
+            memoList.reverse()
         }catch{
             print(error)
         }
